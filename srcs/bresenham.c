@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bresenham.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ramoukha <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ramoukha <ramoukha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/25 14:27:42 by ramoukha          #+#    #+#             */
-/*   Updated: 2020/02/25 14:37:59 by ramoukha         ###   ########.fr       */
+/*   Created: 2020/01/05 15:20:13 by ramoukha          #+#    #+#             */
+/*   Updated: 2020/01/08 14:38:41 by ramoukha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	iso(int *x, int *y, int z)
 
 	previous_x = *x;
 	previous_y = *y;
-	*x = (previous_x - previous_y) * cos(0.1);
+	*x = (previous_x - previous_y) * cos(0.523599);
 	*y = (previous_x + previous_y) * sin(0.523599) - z;
 }
 
@@ -37,7 +37,7 @@ void	line(t_point start, t_point end, t_env *env)
 	{
 		p.e2 = 2 * p.dp;
 		mlx_pixel_put(env->mlx.mlx_ptr, env->mlx.mlx_win,\
-				start.x, start.y, 0xFFFFFF - ((p.c * 10000) % 0xFFFF00));
+				start.x, start.y, 0xFFFFFF - ((p.c * 10000) % 0xFFFFFF));
 		if (start.x == end.x && start.y == end.y)
 			break ;
 		if (p.e2 >= p.dy)
